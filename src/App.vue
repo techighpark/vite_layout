@@ -3,6 +3,10 @@
 </script>
 
 <template>
-  <Layout></Layout>
+  <Layout>
+    <main>
+      abc
+    </main>
+  </Layout>
 </template>
 

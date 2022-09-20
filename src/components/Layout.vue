@@ -1,15 +1,14 @@
 <template>
-  <div class="layout">
-    <Header></Header>
+  <div>
+    <Header/>
+    <slot></slot>
+    <Footer/>
   </div>
 </template>
 
 <script setup>
 
-</script>
+import Footer from "@/components/Footer.vue";</script>
 
 <style scoped>
-.layout {
-  @apply bg-amber-400
-}
 </style>

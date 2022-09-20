@@ -1,6 +1,6 @@
 <template>
   <header class="py-10 border-b">
-    <container>Header</container>
+    <container>Footer</container>
   </header>
 </template>
 
