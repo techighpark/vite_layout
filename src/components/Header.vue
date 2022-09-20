@@ -1,6 +1,9 @@
 <template>
   <header class="py-10 border-b">
-    <container>Header</container>
+    <container>
+      <router-link to="/">Home</router-link>
+      <router-link to="/page1">Page1</router-link>
+    </container>
   </header>
 </template>
 

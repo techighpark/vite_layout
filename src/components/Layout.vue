@@ -8,7 +8,7 @@
 
 <script setup>
 
-import Footer from "@/components/Footer.vue";</script>
+</script>
 
 <style scoped>
 </style>

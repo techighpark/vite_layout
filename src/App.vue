@@ -3,10 +3,11 @@
 </script>
 
 <template>
-  <Layout>
+  <layout>
     <main>
-      abc
+      <router-view/>
+
     </main>
-  </Layout>
+  </layout>
 </template>
 
