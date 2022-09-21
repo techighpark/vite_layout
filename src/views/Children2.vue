@@ -11,8 +11,6 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue';
 
-console.log( history.state.abc );
-
 const isTrue = ref( true );
 const tag = ref( 'input' );
 const username = ref( '' );
@@ -31,11 +29,8 @@ const plusReactiveCount = computed( {
     reactiveCount.value = val - 1;
   },
 } );
-console.log( plusCount );
-console.log( plusReactiveCount );
 
 onMounted( () => {
-  console.log( plusCount.value );
 
 } );
 
