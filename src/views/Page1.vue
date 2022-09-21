@@ -1,18 +1,17 @@
 <template>
 
   <div>Page1</div>
-  <router-link to="/page1/children1">children1</router-link>
-  <router-link to="/page1/children2">children2</router-link>
-  <div>View</div>
+  <!--  <router-link to="/page1/children1">link1</router-link>-->
+  <!--  <router-link to="/page1/children2">link2</router-link>-->
   <router-view></router-view>
-  <router-view name="RightBar"></router-view>
+
 
 </template>
 
-<script setup>
+<script>
+export default {
+  props: [ 'abc' ],
+
+};
 
 </script>
-
-<style scoped>
-
-</style>

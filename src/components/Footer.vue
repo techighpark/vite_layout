@@ -1,7 +1,7 @@
 <template>
-  <header class="py-10 border-b">
+  <footer class="py-10 border-b">
     <container>Footer</container>
-  </header>
+  </footer>
 </template>
 
 <script setup>

@@ -1,14 +1,15 @@
 <template>
   <div>
     <Header/>
-    <slot></slot>
+    <slot :text="slotPros"></slot>
     <Footer/>
   </div>
 </template>
 
 <script setup>
 
-</script>
+import { ref } from 'vue';
 
-<style scoped>
-</style>
+const slotPros = ref( 'slot data' );
+
+</script>

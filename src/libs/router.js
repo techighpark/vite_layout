@@ -1,32 +1,42 @@
-import Home from "@/views/Home.vue";
-import { createRouter, createWebHistory } from "vue-router";
-import Page1 from "@/views/Page1.vue";
-import Children1 from "@/views/Children1.vue";
-import Children2 from "@/views/Children2.vue";
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '@/views/Home.vue';
+import Page1 from '@/views/Page1.vue';
+import Children2 from '@/views/Children2.vue';
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', name: 'home', component: Home, meta: { isAuthenticated: false } },
   {
     path: '/page1',
-    component: {
+    name: 'page',
+    components: {
       default: Page1,
-      RightBar: Children1
+      rightBar: Children2,
     },
-    children: [
-      {
-        path: 'children1',
-        component: Children1
-      },
-      {
-        path: 'children2',
-        component: Children2
-      }
-    ]
-  }
-]
+    meta: { isAuthenticated: true },
+    // children: [
+    //   {
+    //     path: 'children1',
+    //     component: Children1
+    //   },
+    //   {
+    //     path: 'children2',
+    //     component: Children2
+    //   }
+    // ]
+  },
+];
 
 const router = createRouter( {
   history: createWebHistory(),
-  routes
-} )
-export default router
+  routes,
+} );
+router.beforeEach( ( to, from ) => {
+  /*  if( to.meta.isAuthenticated ) {
+      console.log( to.meta.isAuthenticated );
+      return {
+        path: '/',
+        query: { redirect: to.fullPath },
+      };
+    }*/
+} );
+export default router;

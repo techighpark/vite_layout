@@ -1,13 +1,12 @@
 <script setup>
-
 </script>
 
 <template>
   <layout>
-    <main>
+    <div class="border border-red-400">
       <router-view/>
-
-    </main>
+      <router-view name="rightBar"></router-view>
+    </div>
   </layout>
 </template>
 
