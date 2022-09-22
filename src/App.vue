@@ -1,5 +1,6 @@
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
+import { useMeta } from 'vue-meta';
 
 const re = new RegExp( 'ab+c' );
 const regexTest = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
@@ -30,6 +31,13 @@ watch( count, ( newVal, oldVal ) => {
 	console.log( 'old', oldVal );
 	console.log( count.value );
 	console.groupEnd( 'watch end' );
+} );
+onMounted( () => {
+	useMeta( {
+		meta: [
+			{ vmid: 'description', content: 'abs' },
+		],
+	} );
 } );
 </script>
 
