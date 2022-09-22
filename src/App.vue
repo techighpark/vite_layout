@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 
 const re = new RegExp( 'ab+c' );
 const regexTest = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
@@ -32,14 +32,33 @@ watch( count, ( newVal, oldVal ) => {
 	// console.groupEnd( 'watch end' );
 } );
 
-console.group( import.meta.env.MODE );
-console.group( 'import.meta.env' );
-console.log( import.meta.env );
-console.groupEnd();
-console.group( 'process.env' );
-console.log( process.env );
-console.groupEnd();
-console.groupEnd();
+// console.group( import.meta.env.MODE );
+// console.group( 'import.meta.env' );
+// console.log( import.meta.env );
+// console.groupEnd();
+// console.group( 'process.env' );
+// console.log( process.env );
+// console.groupEnd();
+// console.groupEnd();
+onMounted( () => {
+	if( window.kakao && window.kakao.maps ) {
+		initMap();
+	} else {
+		const script = document.createElement( 'script' );
+		/* global kakao */
+		script.onload = () => kakao.maps.load( initMap );
+		script.src = `//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${ process.env.TECH_ALL_KAKAO_MAP_JS_KEY }`;
+		document.head.appendChild( script );
+	}
+} );
+const initMap = () => {
+	const container = document.getElementById( 'map' );
+	const options = { //지도를 생성할 때 필요한 기본 옵션
+		center: new kakao.maps.LatLng( 33.450701, 126.570667 ), //지도의 중심좌표.
+		level: 3, //지도의 레벨(확대, 축소 정도)
+	};
+	let map = new kakao.maps.Map( container, options );
+};
 </script>
 
 <template>
@@ -48,6 +67,7 @@ console.groupEnd();
 			<button @click="count++">button</button>
 			<!--			<router-view/>-->
 			<!--			<router-view name="rightBar"></router-view>-->
+			<div id="map" class="border border-red-400" style="width:500px;height:400px;"></div>
 		</div>
 		{{ re }}
 	</layout>
