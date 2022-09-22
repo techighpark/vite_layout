@@ -58,6 +58,18 @@ const initMap = () => {
 		level: 3, //지도의 레벨(확대, 축소 정도)
 	};
 	let map = new kakao.maps.Map( container, options );
+	const markerPos = new kakao.maps.LatLng( 33.450701, 126.570667 );
+	const marker = new kakao.maps.Marker( { position: markerPos } );
+	marker.setMap( map );
+	marker.setDraggable( true );
+};
+const getWayTo = () => {
+	// 현재 페이지에서 이동
+	window.location.href = 'https://map.kakao.com/link/to/18577297';
+	// 새창으로 열기
+	window.open( 'https://map.kakao.com/link/to/18577297' );
+	// 팝업 창 열기
+	window.open( 'https://map.kakao.com/link/to/18577297', 'kakao mappp', 'width=800, height=700 toolbar=no, menubar=no, scrollbars=no, resizable=yes' );
 };
 </script>
 
@@ -68,6 +80,7 @@ const initMap = () => {
 			<!--			<router-view/>-->
 			<!--			<router-view name="rightBar"></router-view>-->
 			<div id="map" class="border border-red-400" style="width:500px;height:400px;"></div>
+			<button @click="getWayTo">Find Way</button>
 		</div>
 		{{ re }}
 	</layout>
