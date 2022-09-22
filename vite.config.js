@@ -10,8 +10,8 @@ export default ( { mode } ) => {
 		plugins: [ vue() ],
 		define: {
 			'process.env': loadEnv( mode, process.cwd(), 'TECH' ),
-			'process.env.development': loadEnv( mode, process.cwd() + 'development', 'TECH' ),
-			'process.env.production': loadEnv( mode, process.cwd(), 'TECH' ),
+			// 'process.env.development': loadEnv( mode, process.cwd() + 'development', 'TECH' ),
+			// 'process.env.production': loadEnv( mode, process.cwd(), 'TECH' ),
 
 		},
 		resolve: {

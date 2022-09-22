@@ -12,29 +12,34 @@ const plusCount = computed( {
 		count.value = val - 100;
 	},
 } );
-console.group( 'before' );
-// plusCount.value = plusCount.get
-console.log( 'before count : ', count.value );
-console.log( 'before computed: ', plusCount.value );
-console.groupEnd();
+// console.group( 'before' );
+// // plusCount.value = plusCount.get
+// console.log( 'before count : ', count.value );
+// console.log( 'before computed: ', plusCount.value );
+// console.groupEnd();
 // plusCount.value = * : plusCount.set
 plusCount.value = 500;
-console.group( 'after' );
-console.log( 'after count : ', count.value );
-console.log( 'after computed: ', plusCount.value );
-console.groupEnd();
+// console.group( 'after' );
+// console.log( 'after count : ', count.value );
+// console.log( 'after computed: ', plusCount.value );
+// console.groupEnd();
 
 watch( count, ( newVal, oldVal ) => {
-	console.group( 'watch' );
-	console.log( 'new', newVal );
-	console.log( 'old', oldVal );
-	console.log( count.value );
-	console.groupEnd( 'watch end' );
+	// console.group( 'watch' );
+	// console.log( 'new', newVal );
+	// console.log( 'old', oldVal );
+	// console.log( count.value );
+	// console.groupEnd( 'watch end' );
 } );
 
+console.group( import.meta.env.MODE );
+console.group( 'import.meta.env' );
 console.log( import.meta.env );
+console.groupEnd();
+console.group( 'process.env' );
 console.log( process.env );
-console.log( process.env.development );
+console.groupEnd();
+console.groupEnd();
 </script>
 
 <template>
