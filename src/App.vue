@@ -49,6 +49,7 @@ onMounted( () => {
 		script.onload = () => kakao.maps.load( initMap );
 		script.src = `//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${ process.env.TECH_ALL_KAKAO_MAP_JS_KEY }`;
 		document.head.appendChild( script );
+
 	}
 } );
 const initMap = () => {
@@ -63,6 +64,17 @@ const initMap = () => {
 	marker.setMap( map );
 	marker.setDraggable( true );
 };
+const kakaoAuth = window.Kakao;
+
+const kakaoLogin = () => {
+	console.log( kakaoAuth );
+	kakaoAuth.init( `${ process.env.TECH_ALL_KAKAO_MAP_JS_KEY }` );
+	const params = {
+		redirectUri: 'https://localhost:3000/page1',
+	};
+	kakaoAuth.Auth.authorize( params );
+};
+
 const getWayTo = () => {
 	// 현재 페이지에서 이동
 	window.location.href = 'https://map.kakao.com/link/to/18577297';
@@ -77,10 +89,12 @@ const getWayTo = () => {
 	<layout>
 		<div class="border border-red-400">
 			<button @click="count++">button</button>
-			<!--			<router-view/>-->
+			<router-view/>
 			<!--			<router-view name="rightBar"></router-view>-->
 			<div id="map" class="border border-red-400" style="width:500px;height:400px;"></div>
 			<button @click="getWayTo">Find Way</button>
+			<img alt="카카오 로그인 버튼" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+					 width="222" @click="kakaoLogin"/>
 		</div>
 		{{ re }}
 	</layout>

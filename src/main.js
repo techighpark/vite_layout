@@ -15,3 +15,4 @@ Object.entries( components ).forEach( ( [ path, definition ] ) => {
 app.use( router );
 app.config.globalProperties.axios = axios;
 app.mount( '#app' );
+
